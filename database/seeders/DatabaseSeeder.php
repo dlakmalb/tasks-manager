@@ -2,9 +2,12 @@
 
 namespace Database\Seeders;
 
+use App\Models\Project;
+use App\Models\Task;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,11 +18,37 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $users = [
+            User::factory()->create([
+                'name' => 'User A',
+                'email' => 'usera@example.com',
+                'password' => Hash::make('password'),
+            ]),
+            User::factory()->create([
+                'name' => 'User B',
+                'email' => 'userb@example.com',
+                'password' => Hash::make('password'),
+            ]),
+        ];
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        foreach ($users as $user) {
+            Project::factory()
+                ->count(2)
+                ->for($user)
+                ->create()
+                ->each(function (Project $project): void {
+                    Task::factory()
+                        ->count(5)
+                        ->for($project)
+                        ->state(new \Illuminate\Database\Eloquent\Factories\Sequence(
+                            ['is_done' => false],
+                            ['is_done' => true],
+                            ['is_done' => false],
+                            ['is_done' => true],
+                            ['is_done' => false],
+                        ))
+                        ->create();
+                });
+        }
     }
 }
