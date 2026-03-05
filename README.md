@@ -53,7 +53,7 @@ DB_USERNAME=
 DB_PASSWORD=
 ```
 
-5. Run migrations and seeders:
+4. Run migrations and seeders:
 
 ```bash
 php artisan migrate:fresh --seed
