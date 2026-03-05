@@ -1,4 +1,13 @@
-<section class="space-y-6">
+<section
+    class="space-y-6"
+    x-data="{
+        clearDeletionPassword() {
+            const input = this.$root.querySelector('#password');
+            if (input) input.value = '';
+        }
+    }"
+    x-on:close-modal.window="if ($event.detail === 'confirm-user-deletion') clearDeletionPassword()"
+>
     <header>
         <h2 class="text-lg font-medium text-gray-900">
             {{ __('Delete Account') }}
@@ -10,8 +19,7 @@
     </header>
 
     <x-danger-button
-        x-data=""
-        x-on:click.prevent="$dispatch('open-modal', 'confirm-user-deletion')"
+        x-on:click.prevent="clearDeletionPassword(); $dispatch('open-modal', 'confirm-user-deletion')"
     >{{ __('Delete Account') }}</x-danger-button>
 
     <x-modal name="confirm-user-deletion" :show="$errors->userDeletion->isNotEmpty()" focusable>
@@ -42,7 +50,7 @@
             </div>
 
             <div class="mt-6 flex justify-end">
-                <x-secondary-button x-on:click="$dispatch('close')">
+                <x-secondary-button x-on:click="clearDeletionPassword(); $dispatch('close')">
                     {{ __('Cancel') }}
                 </x-secondary-button>
 
