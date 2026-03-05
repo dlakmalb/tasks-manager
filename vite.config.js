@@ -8,4 +8,12 @@ export default defineConfig({
             refresh: true,
         }),
     ],
-});
+    server: {
+        host: '0.0.0.0', // listen on all interfaces
+        port: 5173,
+        hmr: {
+            host: 'localhost', // HMR host (use localhost for Docker)
+            port: 5173,
+        },
+    },
+})

@@ -93,3 +93,50 @@ Seeder creates:
 ```bash
 php artisan test
 ```
+
+## 🐳 Run With Docker
+
+1. Build and start containers:
+
+```bash
+git clone https://github.com/dlakmalb/tasks-manager.git
+cd tasks-manager
+
+docker compose up -d --build
+```
+
+2. Copy Docker env file and install backend dependencies:
+
+```bash
+cp .env.docker.example .env
+docker compose exec app composer install
+docker compose exec app php artisan key:generate
+```
+
+3. Prepare database:
+
+```bash
+docker compose exec app php artisan migrate --seed
+docker compose exec app php artisan storage:link
+```
+
+4. Start Vite for frontend assets:
+
+```bash
+docker compose up -d vite
+```
+
+5. Access services:
+
+- App: `http://localhost:8080`
+- Vite dev server: `http://localhost:5173`
+- Mailpit inbox: `http://localhost:8025`
+- MySQL host port: `127.0.0.1:3307` (container port `3306`)
+
+### Useful Commands
+
+```bash
+docker compose down
+docker compose logs -f app web db
+docker compose exec app php artisan test
+```
