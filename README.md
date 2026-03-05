@@ -44,7 +44,16 @@ php artisan key:generate
 
 3. Update `.env` database settings for your local MySQL.
 
-4. Run migrations and seeders:
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=tasks_manager
+DB_USERNAME=
+DB_PASSWORD=
+```
+
+5. Run migrations and seeders:
 
 ```bash
 php artisan migrate:fresh --seed
