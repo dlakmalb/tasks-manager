@@ -31,6 +31,7 @@ A Laravel Breeze + Blade web app for managing projects and tasks with authentica
 1. Clone and install dependencies:
 
 ```bash
+git clone https://github.com/dlakmalb/tasks-manager.git
 composer install
 npm install
 ```
