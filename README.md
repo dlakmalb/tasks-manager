@@ -32,6 +32,7 @@ A Laravel Breeze + Blade web app for managing projects and tasks with authentica
 
 ```bash
 git clone https://github.com/dlakmalb/tasks-manager.git
+cd task-manager
 composer install
 npm install
 ```
