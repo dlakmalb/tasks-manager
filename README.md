@@ -1,15 +1,22 @@
-# Task Manager
+<div align="center">
+    <h1>
+        📋 Tasks Manager<br/>
+        <sub><sup><sub>Plan projects. Track tasks. Stay organized.</sub></sup></sub><br/>
+    </h1>
+</div>
+<br/>
 
+## 📝 Summary
 A Laravel Breeze + Blade web app for managing projects and tasks with authentication, validation, and ownership-based authorization.
 
-## Tech Stack
+## 🧱 Tech Stack
 
 - PHP 8.2 / Laravel 12
 - Blade (server-rendered UI)
 - MySQL 
 - Laravel Breeze (auth)
 
-## Features
+## 📌 Features
 
 - Register / login / logout
 - Project CRUD
@@ -19,7 +26,7 @@ A Laravel Breeze + Blade web app for managing projects and tasks with authentica
 - Form Request validation
 - Seed data for quick review
 
-## Setup
+## 🚀 Running the Project
 
 1. Clone and install dependencies:
 
@@ -50,7 +57,7 @@ php artisan serve
 npm run dev
 ```
 
-## Database Seeding
+## 🌱 Database Seeding
 
 Seeder creates:
 
@@ -69,7 +76,7 @@ Seeder creates:
   - Email: `userb@example.com`
   - Password: `password`
 
-## Run Tests
+## ✅ Run Tests
 
 ```bash
 php artisan test
