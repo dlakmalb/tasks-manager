@@ -59,7 +59,7 @@ docker compose exec app php artisan key:generate
 
 #### 5. Run database migrations and seed data
 ```bash
-docker compose exec app php artisan migrate --seed
+docker compose exec app php artisan migrate:fresh --seed
 ```
 
 #### 6. Start the Vite dev server
